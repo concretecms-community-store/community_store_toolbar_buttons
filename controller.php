@@ -36,7 +36,7 @@ class Controller extends Package
         // Button to orders
         $ordersIcon = array(
             'icon' => 'shopping-cart',
-            'label' => '&nbsp' . t('Orders'),
+            'label' => '&nbsp;' . t('Orders'),
             'position' => 'right',
             'href' => \URL::to('/dashboard/store/orders'),
             'linkAttributes' => array('title'=>t('Orders'))
@@ -47,7 +47,7 @@ class Controller extends Package
         // Button to all products
         $productsIcon = array(
             'icon' => 'list-alt',
-            'label' => '&nbsp' . t('Products'),
+            'label' => '&nbsp;' . t('Products'),
             'position' => 'right',
             'href' => \URL::to('/dashboard/store/products'),
             'linkAttributes' => array('title'=>t('Products'))
@@ -58,7 +58,7 @@ class Controller extends Package
         // Button to direct product editing
         $productIcon = array(
             'icon' => 'gift',
-            'label' => '&nbsp' . t('Edit Product'),
+            'label' => '&nbsp;' . t('Edit Product'),
             'position' => 'left',
             'linkAttributes' => array('title'=>t('Edit Product'))
         );
