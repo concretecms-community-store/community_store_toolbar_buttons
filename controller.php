@@ -7,7 +7,7 @@ class Controller extends Package
 {
     protected $pkgHandle = 'community_store_toolbar_buttons';
     protected $appVersionRequired = '5.7.5';
-    protected $pkgVersion = '0.2';
+    protected $pkgVersion = '1.0';
 
     public function getPackageDescription()
     {
