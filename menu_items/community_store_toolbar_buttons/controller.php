@@ -24,23 +24,23 @@ class Controller extends \Concrete\Core\Application\UserInterface\Menu\Item\Cont
     public function getMenuItemLinkElement()
     {
         $a = parent::getMenuItemLinkElement();
+        $page = \Page::getCurrentPage();
 
         // if we haven't set a url, it must be dynamic
-        if ($a->getAttribute('href') == '#') {
-            $page = \Page::getCurrentPage();
-
-
-            if ($page && !$page->isAdminArea()) {
-                $product = StoreProduct::getByCollectionID($page->getCollectionID());
-                if ($product) {
-                    $a->href = \URL::to('/dashboard/store/products/edit/' . $product->getID());
-                    return $a;
-                } else {
-                    return '';
+        if ($page && !$page->isAdminArea()) {
+            if ($a->getAttribute('href') == '#') {
+                if ($page && !$page->isAdminArea()) {
+                    $product = StoreProduct::getByCollectionID($page->getCollectionID());
+                    if ($product) {
+                        $a->href = \URL::to('/dashboard/store/products/edit/' . $product->getID());
+                        return $a;
+                    } else {
+                        return '';
+                    }
                 }
             }
-        }
 
-        return $a;
+            return $a;
+        }
     }
 }
