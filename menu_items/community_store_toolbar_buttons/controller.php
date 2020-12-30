@@ -2,6 +2,7 @@
 
 namespace Concrete\Package\CommunityStoreToolbarButtons\MenuItem\CommunityStoreToolbarButtons;
 
+use Concrete\Core\Page\Page;
 use Concrete\Package\CommunityStore\Src\CommunityStore\Product\Product as StoreProduct;
 
 class Controller extends \Concrete\Core\Application\UserInterface\Menu\Item\Controller
@@ -10,9 +11,9 @@ class Controller extends \Concrete\Core\Application\UserInterface\Menu\Item\Cont
     {
         // check permissions
         $canView = false;
-        $p = \Page::getByPath('/dashboard/store/products');
+        $p = Page::getByPath('/dashboard/store/products');
 
-        $cpc = new \Permissions($p);
+        $cpc = new \Concrete\Core\Permission\Checker($p);
 
         if ($cpc->canViewPage()) {
             $canView = true;
@@ -24,7 +25,7 @@ class Controller extends \Concrete\Core\Application\UserInterface\Menu\Item\Cont
     public function getMenuItemLinkElement()
     {
         $a = parent::getMenuItemLinkElement();
-        $page = \Page::getCurrentPage();
+        $page = Page::getCurrentPage();
 
         // if we haven't set a url, it must be dynamic
         if ($page && !$page->isAdminArea()) {
